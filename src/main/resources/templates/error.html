@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <title>
+    Error:404
+  </title>
+  <style>
+    h1 {
+      color: gray;
+    }
+  </style>
+</head>
+<style>
+
+  :root {
+    --Space-Invader-Color: #424242;
+  }
+
+  #space-invader {
+    box-shadow: 0 0 0 1em var(--Space-Invader-Color),
+    0 1em 0 1em var(--Space-Invader-Color),
+    -2.5em 1.5em 0 .5em var(--Space-Invader-Color),
+    2.5em 1.5em 0 .5em var(--Space-Invader-Color),
+    -3em -3em 0 0 var(--Space-Invader-Color),
+    3em -3em 0 0 var(--Space-Invader-Color),
+    -2em -2em 0 0 var(--Space-Invader-Color),
+    2em -2em 0 0 var(--Space-Invader-Color),
+    -3em -1em 0 0 var(--Space-Invader-Color),
+    -2em -1em 0 0 var(--Space-Invader-Color),
+    2em -1em 0 0 var(--Space-Invader-Color),
+    3em -1em 0 0 var(--Space-Invader-Color),
+    -4em 0 0 0 var(--Space-Invader-Color),
+    -3em 0 0 0 var(--Space-Invader-Color),
+    3em 0 0 0 var(--Space-Invader-Color),
+    4em 0 0 0 var(--Space-Invader-Color),
+    -5em 1em 0 0 var(--Space-Invader-Color),
+    -4em 1em 0 0 var(--Space-Invader-Color),
+    4em 1em 0 0 var(--Space-Invader-Color),
+    5em 1em 0 0 var(--Space-Invader-Color),
+    -5em 2em 0 0 var(--Space-Invader-Color),
+    5em 2em 0 0 var(--Space-Invader-Color),
+    -5em 3em 0 0 var(--Space-Invader-Color),
+    -3em 3em 0 0 var(--Space-Invader-Color),
+    3em 3em 0 0 var(--Space-Invader-Color),
+    5em 3em 0 0 var(--Space-Invader-Color),
+    -2em 4em 0 0 var(--Space-Invader-Color),
+    -1em 4em 0 0 var(--Space-Invader-Color),
+    1em 4em 0 0 var(--Space-Invader-Color),
+    2em 4em 0 0 var(--Space-Invader-Color);
+
+    background: var(--Space-Invader-Color);
+    width: 1em;
+    height: 1em;
+    overflow: hidden;
+    /*margin: 50px 0 70px 65px;*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+  }
+</style>
+<body onload="reciprocal()">
+<div class="container" style="display: flex;">
+
+
+  <div id="space-invader">
+  </div>
+</div>
+<p style="text-align: center;font-weight: 900;font-size: xxx-large;color:var(--Space-Invader-Color)" th:text="'Error' + ${errorcode}"></p>
+<p style="text-align: center;font-weight: 900;font-size: xx-large;color:var(--Space-Invader-Color)">請重新訪問，將會為您跳轉回首頁</p>
+<p id="showtime" style="text-align: center;font-weight: 900;font-size: x-large;color:var(--Space-Invader-Color)"></p>
+</body>
+<script>
+
+  var time = 5
+
+  function reciprocal() {
+    document.getElementById("showtime").innerHTML= time+"秒後即將跳轉";
+    setTimeout(reciprocal, 1000);
+    time -= 1
+  }
+
+
+  setTimeout(() => {
+      document.location.href="/";
+  }, 5000)
+</script>
+</html>
